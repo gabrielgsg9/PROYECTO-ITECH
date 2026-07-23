@@ -1,7 +1,4 @@
 <?php
-/**
- * home.php — Página de inicio · OdontoClinic
- */
 session_start();
 
 require_once "../Data/dataClinica.php";

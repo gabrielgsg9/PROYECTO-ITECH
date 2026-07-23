@@ -15,9 +15,12 @@ $sucursales = [
 ];
 
 $servicios = [
-    ['id' => 1, 'nombre' => 'Consulta General', 'duracion' => 30, 'icono' => '🦷'],
-    ['id' => 2, 'nombre' => 'Limpieza Dental', 'duracion' => 45, 'icono' => '✨'],
-    ['id' => 3, 'nombre' => 'Ortodoncia', 'duracion' => 60, 'icono' => '⚙️'],
+    ['id' => 1, 'nombre' => 'Radiografía Periapical', 'duracion' => 15, 'icono' => '🦷'],
+    ['id' => 2, 'nombre' => 'Radiografía Bite-Wing', 'duracion' => 15, 'icono' => '🩻'],
+    ['id' => 3, 'nombre' => 'Radiografía Panorámica', 'duracion' => 20, 'icono' => '📸'],
+    ['id' => 4, 'nombre' => 'Telerradiografía', 'duracion' => 20, 'icono' => '📐'],
+    ['id' => 5, 'nombre' => 'Tomografía Cone Beam (CBCT)', 'duracion' => 40, 'icono' => '🖥️'],
+    ['id' => 6, 'nombre' => 'Escaneo Intraoral 3D', 'duracion' => 30, 'icono' => '📷'],
 ];
 
 $profesionales = [

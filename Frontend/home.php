@@ -3,7 +3,7 @@ session_start();
 
 require_once "../Data/dataClinica.php";
 
-// Índice profesional por especialidad para asociar fácil
+
 $prof_idx = [];
 foreach ($profesionales as $p)
     $prof_idx[$p['especialidad']] = $p;

@@ -21,7 +21,6 @@ $links_info = [
     <div class="footer__body">
         <div class="footer__grid">
 
-            <!-- Marca -->
             <div class="footer__col footer__col--brand">
                 <a href="dashboard.php" class="footer__logo">
                     <div class="footer__logo-icon">🦷</div>
@@ -58,7 +57,6 @@ $links_info = [
                 </div>
             </div>
 
-            <!-- Mi Portal -->
             <div class="footer__col">
                 <h4 class="footer__col-title">Mi Portal</h4>
                 <ul class="footer__links">
@@ -68,7 +66,6 @@ $links_info = [
                 </ul>
             </div>
 
-            <!-- Información -->
             <div class="footer__col">
                 <h4 class="footer__col-title">Información</h4>
                 <ul class="footer__links">
@@ -78,7 +75,6 @@ $links_info = [
                 </ul>
             </div>
 
-            <!-- Contacto -->
             <div class="footer__col">
                 <h4 class="footer__col-title">Contacto</h4>
                 <a href="tel:+59829001234" class="footer__contact-item">📞 2900 1234</a>

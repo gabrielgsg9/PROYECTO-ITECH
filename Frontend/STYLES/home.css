@@ -576,3 +576,6 @@ body {
     font-size: 1.7rem;
   }
 }
+
+
+/* Separar estilado navbar para evitar errores con navbar.css */

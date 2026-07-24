@@ -22,7 +22,6 @@ $fechas_disponibles = generar_fechas_disponibles(14);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar Cita — Portal del Paciente</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,7 +38,6 @@ $fechas_disponibles = generar_fechas_disponibles(14);
     <?php require_once __DIR__ . '/Components/navbar.php'; ?>
 
     <?php if ($confirmacion): ?>
-        <!--PANTALLA DE CONFIRMACIÓN-->
         <div class="page-hero">
             <div class="page-hero__content">
                 <div class="page-hero__eyebrow">✅ Solicitud enviada</div>
@@ -97,7 +95,6 @@ $fechas_disponibles = generar_fechas_disponibles(14);
 
     <?php else: ?>
 
-        <!--HERO-->
         <div class="page-hero">
             <div class="page-hero__content">
                 <div class="page-hero__eyebrow">📅 Nueva cita</div>
@@ -106,7 +103,6 @@ $fechas_disponibles = generar_fechas_disponibles(14);
             </div>
         </div>
 
-        <!--STEPPER-->
         <div class="stepper-wrapper">
             <div class="stepper">
                 <div class="step active" id="step-tab-1" onclick="goToStep(1)">
@@ -132,10 +128,8 @@ $fechas_disponibles = generar_fechas_disponibles(14);
             </div>
         </div>
 
-        <!--FORM PRINCIPAL-->
         <div class="main">
             <div>
-                <!-- Errores PHP -->
                 <?php if (!empty($errores)): ?>
                     <div class="alert alert--error">
                         <span>⚠️</span>
@@ -151,7 +145,7 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                 <?php endif; ?>
 
                 <form method="POST" action="agenda.php" id="formAgenda" novalidate>
-                    <!-- CSRF token -->
+                    <!--token improvisado contra ataques csrf -->
                     <input type="hidden" name="csrf_token" value="<?= bin2hex(random_bytes(32)) ?>">
                     <input type="hidden" name="confirmar_cita" value="1">
 
@@ -164,7 +158,7 @@ $fechas_disponibles = generar_fechas_disponibles(14);
 
                     <div class="form-card">
 
-                        <!-- ─── PASO 1: Sucursal & Servicio ─────────────── -->
+
                         <div class="form-section visible" id="section-1">
                             <h2 class="section-title">Seleccionar la Sucursal</h2>
                             <p class="section-subtitle">Elegir la clínica más conveniente para la visita.</p>
@@ -211,12 +205,12 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                             </div>
                         </div>
 
-                        <!-- ─── PASO 2: Profesional ──────────────────────── -->
+
                         <div class="form-section" id="section-2">
                             <h2 class="section-title">Elegir Profesional</h2>
                             <p class="section-subtitle">Seleccionar un profesional de preferencia</p>
 
-                            <!-- Sin preferencia -->
+
                             <div class="selectable-card badge-none selected" data-type="profesional" data-id=""
                                 data-nombre="Sin preferencia" style="margin-bottom:.9rem;" id="no-pref-card">
                                 <input type="radio" name="prof_radio" value="" checked>
@@ -247,7 +241,7 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                             </div>
                         </div>
 
-                        <!-- ─── PASO 3: Fecha & Hora ─────────────────────── -->
+
                         <div class="form-section" id="section-3">
                             <h2 class="section-title">Seleccionar la Fecha</h2>
                             <p class="section-subtitle">Los próximos 14 días hábiles con disponibilidad.</p>
@@ -295,7 +289,6 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                             </div>
                         </div>
 
-                        <!-- ─── PASO 4: Confirmar ──────────────────-->
                         <div class="form-section" id="section-4">
                             <h2 class="section-title">Confirmar Cita</h2>
                             <p class="section-subtitle">Revisar los datos antes de enviar la solicitud.</p>
@@ -384,9 +377,9 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                             </div>
                         </div>
 
-                    </div><!-- /form-card -->
+                    </div>
 
-                    <!-- ── Navegación entre pasos ── -->
+
                     <div class="step-nav">
                         <button type="button" class="btn btn--outline" id="btn-back" onclick="prevStep()"
                             style="visibility:hidden;">
@@ -401,9 +394,8 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                         </button>
                     </div>
                 </form>
-            </div><!-- /col principal -->
+            </div>
 
-            <!-- ── SIDEBAR ── -->
             <aside class="sidebar">
                 <div class="summary-card">
                     <div class="summary-card__head">

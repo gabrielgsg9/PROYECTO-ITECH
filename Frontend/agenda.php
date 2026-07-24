@@ -319,7 +319,7 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                                         <tr>
                                             <td
                                                 style="padding:.5rem 0; color:var(--gris-texto); font-weight:600; vertical-align:top;">
-                                                🏥 Sucursal</td>
+                                                Sucursal</td>
                                             <td style="padding:.5rem 0; font-weight:700; color:var(--azul-profundo);"
                                                 id="conf-sucursal">—</td>
                                         </tr>
@@ -378,7 +378,8 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                                 style="display:none; background:var(--turquesa-light); border:1px solid rgba(14,165,200,.3); color:#0369A1;">
                                 <span>ℹ️</span>
                                 <span>Al enviar, la cita quedará en estado <strong>Pendiente de confirmación</strong>.
-                                    Se enviará un correo a <strong><?= htmlspecialchars($patient['email']) ?></strong> cuando
+                                    Se enviará un correo a <strong><?= htmlspecialchars($patient['email']) ?></strong>
+                                    cuando
                                     la cita sea confirmada.</span>
                             </div>
                         </div>
@@ -411,31 +412,31 @@ $fechas_disponibles = generar_fechas_disponibles(14);
                     </div>
                     <div class="summary-card__body">
                         <div class="summary-row">
-                            <span class="summary-row__label">👤 Paciente</span>
+                            <span class="summary-row__label">Paciente</span>
                             <span class="summary-row__value"><?= htmlspecialchars($patient['nombre']) ?></span>
                         </div>
                         <div class="summary-row">
-                            <span class="summary-row__label">🏥 Sucursal</span>
+                            <span class="summary-row__label">Sucursal</span>
                             <span class="summary-row__value empty" id="sb-sucursal">Sin seleccionar</span>
                         </div>
                         <div class="summary-row">
-                            <span class="summary-row__label">🦷 Servicio</span>
+                            <span class="summary-row__label">Servicio</span>
                             <span class="summary-row__value empty" id="sb-servicio">Sin seleccionar</span>
                         </div>
                         <div class="summary-row">
-                            <span class="summary-row__label">⏱️ Duración aprox.</span>
+                            <span class="summary-row__label">Duración aprox.</span>
                             <span class="summary-row__value empty" id="sb-duracion">—</span>
                         </div>
                         <div class="summary-row">
-                            <span class="summary-row__label">👨‍⚕️ Profesional</span>
+                            <span class="summary-row__label">Profesional</span>
                             <span class="summary-row__value empty" id="sb-profesional">Sin preferencia</span>
                         </div>
                         <div class="summary-row">
-                            <span class="summary-row__label">📅 Fecha</span>
+                            <span class="summary-row__label">Fecha</span>
                             <span class="summary-row__value empty" id="sb-fecha">Sin seleccionar</span>
                         </div>
                         <div class="summary-row">
-                            <span class="summary-row__label">⏰ Hora</span>
+                            <span class="summary-row__label">Hora</span>
                             <span class="summary-row__value empty" id="sb-hora">Sin seleccionar</span>
                         </div>
                     </div>

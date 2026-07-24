@@ -13,12 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión — Clínica Imagen</title>
     <link rel="stylesheet" href="STYLES/login.css">
 </head>
+
 <body>
     <main class="auth-wrapper">
         <div class="auth-card">
@@ -41,4 +43,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 </body>
+
 </html>

@@ -22,7 +22,6 @@
   --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 *,
 *::before,
 *::after {
@@ -499,7 +498,6 @@ body {
   text-decoration: line-through;
 }
 
-
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -535,7 +533,7 @@ body {
   background: #fff;
 }
 
-/* buttons para navegacion */
+/*  para navegacion */
 .step-nav {
   display: flex;
   justify-content: space-between;
@@ -605,8 +603,6 @@ body {
   transform: none !important;
   box-shadow: none !important;
 }
-
-/* ══════════════ Pantalla de confirmación ══════════════ */
 
 .confirmation-wrap {
   max-width: 560px;
@@ -700,31 +696,34 @@ body {
   gap: 0.75rem;
 }
 
-/* ══════════════ Responsive ══════════════ */
+/* responsivee */
 @media (max-width: 900px) {
   .main {
-    grid-template-columns: 1fr;   /* sidebar pasa abajo, no al costado */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
     padding: 0 1rem 3rem;
   }
 
   .sidebar {
-    order: -1; /* opcional: mostrar el resumen ANTES del form en mobile */
+    order: -1; 
   }
 }
 
 @media (max-width: 640px) {
   .card-grid--2 {
-    grid-template-columns: 1fr; /* sucursal/servicio en una sola columna */
+    grid-template-columns: 1fr; 
   }
 
   .date-grid {
-    grid-template-columns: repeat(4, 1fr); /* 7 columnas no entran en un celular */
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); 
     gap: 0.4rem;
   }
 
   .time-grid {
-    grid-template-columns: repeat(2, 1fr); /* 4 columnas también apretaba */
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   .page-hero h1 {
@@ -743,16 +742,14 @@ body {
     padding: 0.5rem 1rem;
   }
 }
-/* ══════════════ Responsive extra — anchos muy chicos ══════════════ */
 
-/* 1. Nada debería poder forzar el ancho del body */
-html, body {
+
+html,
+body {
   overflow-x: hidden;
 }
 
-/* 2. Los items de grid por defecto tienen min-width:auto,
-      lo que impide que el texto adentro se achique. Esto es
-      la causa más común de scroll horizontal con CSS grid. */
+
 .card-grid,
 .card-grid > .selectable-card,
 .date-grid > .date-card,
@@ -762,8 +759,6 @@ html, body {
   min-width: 0;
 }
 
-/* 3. Textos largos (nombres de servicio, profesional, etc.)
-      que puedan romper en cualquier punto si hace falta */
 .card-title,
 .card-sub,
 .summary-row__value,
@@ -774,14 +769,12 @@ html, body {
 }
 
 @media (max-width: 480px) {
-  /* la tabla de resumen final tenía una columna fija de 130px */
+
   table td[style*="width:130px"] {
     width: auto !important;
     display: block;
   }
 
-  /* el step-nav en una fila con 3 elementos + texto "Paso 1 de 4"
-     se apretaba mucho */
   .step-nav {
     flex-wrap: wrap;
     gap: 0.6rem;
@@ -799,8 +792,6 @@ html, body {
     font-size: 0.82rem;
   }
 
-  /* labels del stepper en mayúsculas + letter-spacing
-     no tienen dónde cortar → forzamos wrap */
   .step__label {
     white-space: normal;
     line-height: 1.15;
@@ -821,6 +812,6 @@ html, body {
   }
 
   .help-card a {
-    word-break: break-all; /* el link de whatsapp/tel puede ser largo */
+    word-break: break-all; 
   }
 }

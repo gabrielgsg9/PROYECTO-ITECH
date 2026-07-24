@@ -1,6 +1,6 @@
 :root {
   --color-bg: #f5f6f8;
-  --color-card: #ffffff;
+  --color-card: #ffffff; 
   --color-primary: #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-text: #1f2933;
@@ -20,7 +20,11 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
 }
@@ -73,7 +77,9 @@ body {
   border-radius: 8px;
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .auth-form input:focus {
@@ -135,7 +141,6 @@ body {
   margin: 0;
   padding-left: 1.1rem;
 }
-
 
 @media (max-width: 420px) {
   .auth-card {

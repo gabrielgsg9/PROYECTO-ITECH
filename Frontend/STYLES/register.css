@@ -1,6 +1,6 @@
 :root {
   --color-bg: #f5f6f8;
-  --color-card: #ffffff;
+  --color-card: #ffffff; 
   --color-primary: #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-text: #1f2933;
@@ -20,7 +20,11 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
 }
@@ -73,57 +77,14 @@ body {
   border-radius: 8px;
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .auth-form input:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-.auth-row {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.auth-row .auth-field {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.optional {
-  font-weight: 400;
-  color: var(--color-muted);
-  font-size: 0.78rem;
-}
-
-.auth-checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  cursor: pointer;
-}
-
-.auth-checkbox input {
-  margin-top: 0.2rem;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  accent-color: var(--color-primary);
-}
-
-.auth-checkbox a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.auth-checkbox a:hover {
-  text-decoration: underline;
 }
 
 .btn-primary {
@@ -181,7 +142,7 @@ body {
   padding-left: 1.1rem;
 }
 
-/* ── Responsive ─────────────────────────────────────────────────────── */
+/* reesponsive*/
 @media (max-width: 420px) {
   .auth-card {
     padding: 1.5rem 1.25rem;
@@ -190,11 +151,6 @@ body {
 
   .auth-card h1 {
     font-size: 1.3rem;
-  }
-
-  .auth-row {
-    flex-direction: column;
-    gap: 0;
   }
 }
 

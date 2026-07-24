@@ -1,4 +1,5 @@
 <?php
+//Simulando la bd aca
 
 $patient = [
     'id' => 42,
@@ -8,10 +9,10 @@ $patient = [
 ];
 
 $sucursales = [
-    ['id' => 1, 'nombre' => 'Sucursal Centro', 'direccion' => 'Av. 18 de Julio 1234, Montevideo'],
-    ['id' => 2, 'nombre' => 'Sucursal Pocitos', 'direccion' => 'Br. España 2780, Montevideo'],
-    ['id' => 3, 'nombre' => 'Sucursal Carrasco', 'direccion' => 'Av. Rivera 6200, Montevideo'],
-    ['id' => 4, 'nombre' => 'Sucursal Punta Carretas', 'direccion' => 'Solano García 2785, Montevideo'],
+    ['id' => 1, 'nombre' => 'Sucursal Centro', 'direccion' => 'Av. 18 de Julio 1234, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider1.jpg'],
+    ['id' => 2, 'nombre' => 'Sucursal Pocitos', 'direccion' => 'Br. España 2780, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider2.jpg'],
+    ['id' => 3, 'nombre' => 'Sucursal Carrasco', 'direccion' => 'Av. Rivera 6200, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider1.jpg'],
+    ['id' => 4, 'nombre' => 'Sucursal Punta Carretas', 'direccion' => 'Solano García 2785, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider2.jpg'],
 ];
 
 $servicios = [

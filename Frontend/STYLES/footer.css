@@ -122,19 +122,16 @@
 
 .footer__links a:link,
 .footer__links a:visited {
-  color: var(--f-texto); 
+  color: var(--f-texto);
   text-decoration: none;
   font-size: 0.83rem;
   transition: color var(--f-trans);
 }
 
-
 .footer__links a:hover,
 .footer__links a:focus-visible {
   color: var(--f-blanco);
 }
-
-
 
 .footer__contact-item:link,
 .footer__contact-item:visited {

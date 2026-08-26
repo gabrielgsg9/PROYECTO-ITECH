@@ -1,7 +1,7 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/Helpers/auth.php';
+
+start_auth_session();
 // 1. Limpieza absoluta de variables en memoria activa
 $_SESSION = array();
 // 2. Invalidación explícita de la cookie de rastreo en el cliente

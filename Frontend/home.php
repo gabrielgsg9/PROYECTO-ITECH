@@ -24,9 +24,7 @@ $patient_name = $logged_in ? htmlspecialchars($_SESSION['patient_name'] ?? '') :
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="STYLES/navbar.css">
     <link rel="stylesheet" href="STYLES/home.css">
-    <link rel="stylesheet" href="STYLES/footer.css">
 </head>
 
 <body>
@@ -46,9 +44,9 @@ $patient_name = $logged_in ? htmlspecialchars($_SESSION['patient_name'] ?? '') :
             <div class="hero-btns">
                 <?php if ($logged_in): ?>
                     <a href="agenda.php" class="btn btn--solid">📅 Agendar cita</a>
-                    <a href="dashboard.php" class="btn btn--ghost">Panel</a>
+                    <a href="#" class="btn btn--ghost">Panel</a>
                 <?php else: ?>
-                    <a href="registro.php" class="btn btn--solid">Crear cuenta</a>
+                    <a href="register.php" class="btn btn--solid">Crear cuenta</a>
                     <a href="login.php" class="btn btn--ghost">Ya tiene cuenta</a>
                 <?php endif; ?>
             </div>
@@ -122,7 +120,7 @@ $patient_name = $logged_in ? htmlspecialchars($_SESSION['patient_name'] ?? '') :
         </div>
     </section>
 
-    <!-- Testimonios (hardcodaeada)-->
+    <!-- Testimonios (hardcodeados) -->
     <section class="section">
         <div class="sec-wrap">
             <div class="sec-head">

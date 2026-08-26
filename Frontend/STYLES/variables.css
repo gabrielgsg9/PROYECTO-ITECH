@@ -1,0 +1,28 @@
+:root {
+  --clinic-color-deep: #1a3a5c;
+  --clinic-color-medium: #2a5f8f;
+  --clinic-color-dark: #0f2030;
+  --clinic-color-accent: #0ea5c8;
+  --clinic-color-accent-light: #e0f5fb;
+  --clinic-color-surface: #f8fafc;
+  --clinic-color-border: #d1e0ed;
+  --clinic-color-text: #4a6580;
+  --clinic-color-muted: #8fa8bf;
+  --clinic-font-primary: "Nunito", sans-serif;
+  --clinic-font-heading: "Playfair Display", serif;
+  --clinic-transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --auth-color-bg: #f5f6f8;
+  --auth-color-card: #ffffff;
+  --auth-color-primary: #2563eb;
+  --auth-color-primary-dark: #1d4ed8;
+  --auth-color-text: #1f2933;
+  --auth-color-muted: #6b7280;
+  --auth-color-border: #e2e8f0;
+  --auth-color-error-bg: #fdecea;
+  --auth-color-error-text: #b3261e;
+  --auth-color-ok-bg: #eafaf0;
+  --auth-color-ok-text: #1a7f4b;
+  --auth-radius: 10px;
+  --auth-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}

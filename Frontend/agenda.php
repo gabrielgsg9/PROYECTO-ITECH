@@ -29,8 +29,6 @@ $fechas_disponibles = generar_fechas_disponibles(14);
         rel="stylesheet">
 
     <link rel="stylesheet" href="STYLES/agenda.css">
-    <link rel="stylesheet" href="STYLES/navbar.css">
-    <link rel="stylesheet" href="STYLES/footer.css">
 </head>
 
 <body>

@@ -1,0 +1,19 @@
+/* Login and backoffice-only variants. */
+.button-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dashboard-card {
+  text-align: center;
+}
+
+.role-label {
+  margin: 0 0 0.55rem;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

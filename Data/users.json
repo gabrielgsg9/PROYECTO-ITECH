@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Ana Martínez",
+        "username": "admin",
+        "email": "admin@clinicaimagen.test",
+        "password_hash": "$2y$10$kZ\/zj0HPuFubAORDGQxiJOUHnDl8Oh2YV7eUBZawQtshwlW7gZZjS",
+        "role": "administrador"
+    },
+    {
+        "id": 2,
+        "name": "Lucía Fernández",
+        "username": "recepcion",
+        "email": "recepcion@clinicaimagen.test",
+        "password_hash": "$2y$10$ft4EZip6KbSqkS7F3Nz2qeWeJjSJVBdGNirq2J1xnKp4kzDQF76Wm",
+        "role": "recepcionista"
+    },
+    {
+        "id": 3,
+        "name": "Usuario de Prueba - Administrador",
+        "username": "admin.test",
+        "email": "administrador.test@example.com",
+        "password_hash": "$2y$10$Xd4cp1rBHtD.984MyUfRV.IZEzkE9Zg\/4Fj.b8OoRN3PvnC8WS\/Na",
+        "role": "administrador"
+    },
+    {
+        "id": 4,
+        "name": "Usuario de Prueba - Recepcionista",
+        "username": "recepcion.test",
+        "email": "recepcionista.test@example.com",
+        "password_hash": "$2y$10$BL6Tlhdbb2vMMQv.H74qDO8tvNJT0qhtpaMxKVk.ElEHVTJ2F190i",
+        "role": "recepcionista"
+    }
+]

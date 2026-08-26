@@ -17,9 +17,9 @@
         <ul class="navbar__links">
             <li><a href="home.php">Inicio</a></li>
             <li><a href="agenda.php" class="active">Mis Citas</a></li>
-            <li><a href="historial.php">Historial</a></li>
-            <li><a href="estudios.php">Estudios</a></li>
-            <li><a href="perfil.php">Mi Perfil</a></li>
+            <li><a href="#">Historial</a></li>
+            <li><a href="#">Estudios</a></li>
+            <li><a href="#">Mi Perfil</a></li>
             <li><a href="logout.php">Salir</a></li>
         </ul>
 

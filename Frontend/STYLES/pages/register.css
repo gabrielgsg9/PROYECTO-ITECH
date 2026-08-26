@@ -1,0 +1,9 @@
+.auth-card {
+  max-width: 440px;
+}
+
+@media (min-width: 900px) {
+  .auth-card {
+    max-width: 400px;
+  }
+}

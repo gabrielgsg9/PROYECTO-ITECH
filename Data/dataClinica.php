@@ -1,12 +1,5 @@
 <?php
-//Simulando la bd aca
-
-$patient = [
-    'id' => 42,
-    'nombre' => 'María González',
-    'email' => 'maria.gonzalez@email.com',
-    'cedula' => '4.521.830-7',
-];
+// Datos clínicos simulados.
 
 $sucursales = [
     ['id' => 1, 'nombre' => 'Sucursal Centro', 'direccion' => 'Av. 18 de Julio 1234, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider1.jpg'],

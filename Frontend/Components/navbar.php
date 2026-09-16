@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <a href="dashboard.php" class="navbar__brand">
+    <a href="#" class="navbar__brand">
         <div class="navbar__logo">🦷</div>
         <div class="navbar__name">
             OdontoClinic
@@ -23,11 +23,13 @@
             <li><a href="logout.php">Salir</a></li>
         </ul>
 
-        <div class="navbar__user">
-            <div class="navbar__avatar">
-                <?= strtoupper(substr($patient['nombre'], 0, 1)) ?>
+        <?php if (isset($patient) && $patient !== null): ?>
+            <div class="navbar__user">
+                <div class="navbar__avatar">
+                    <?= htmlspecialchars(strtoupper(substr($patient['nombre'], 0, 1)), ENT_QUOTES, 'UTF-8') ?>
+                </div>
+                <span class="navbar__user-name"><?= htmlspecialchars($patient['nombre'], ENT_QUOTES, 'UTF-8') ?></span>
             </div>
-            <span class="navbar__user-name"><?= htmlspecialchars($patient['nombre']) ?></span>
-        </div>
+        <?php endif; ?>
     </div>
 </nav>

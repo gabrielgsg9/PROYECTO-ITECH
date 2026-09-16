@@ -1,7 +1,8 @@
 <?php
-session_start();
+require_once __DIR__ . '/Helpers/auth.php';
+require_once __DIR__ . '/../Data/dataClinica.php';
 
-require_once "../Data/dataClinica.php";
+$patient = get_current_patient();
 
 
 $prof_idx = [];
@@ -9,8 +10,7 @@ foreach ($profesionales as $p)
     $prof_idx[$p['especialidad']] = $p;
 
 
-$logged_in = isset($_SESSION['patient_id']);
-$patient_name = $logged_in ? htmlspecialchars($_SESSION['patient_name'] ?? '') : null;
+$logged_in = $patient !== null;
 ?>
 <!DOCTYPE html>
 <html lang="es">

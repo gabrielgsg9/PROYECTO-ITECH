@@ -22,7 +22,7 @@ $links_info = [
         <div class="footer__grid">
 
             <div class="footer__col footer__col--brand">
-                <a href="dashboard.php" class="footer__logo">
+                <a href="#" class="footer__logo">
                     <div class="footer__logo-icon">🦷</div>
                     <div class="footer__logo-text">
                         OdontoClinic

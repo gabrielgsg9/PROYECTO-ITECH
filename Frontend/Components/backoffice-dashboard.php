@@ -4,7 +4,10 @@ $dashboardBasePath = $dashboardBasePath ?? '../';
 $dashboardUserName = htmlspecialchars((string) ($_SESSION['user_name'] ?? ''), ENT_QUOTES, 'UTF-8');
 $dashboardRole = (string) ($_SESSION['role'] ?? '');
 $isAdministrator = $dashboardRole === 'administrador';
-$registeredPatients = isset($patient) ? 1 : 0;
+$registeredPatients = count(array_filter(
+    get_auth_users(),
+    static fn (array $user): bool => ($user['role'] ?? '') === 'paciente'
+));
 $activeProfessionals = count($profesionales ?? []);
 ?>
 <!doctype html>

@@ -1,6 +1,11 @@
 <?php
+require_once __DIR__ . '/Helpers/auth.php';
 
-session_start();
+$patient = get_current_patient();
+if ($patient === null) {
+    header('Location: login.php');
+    exit;
+}
 
 require_once __DIR__ . '/../Data/dataClinica.php';
 

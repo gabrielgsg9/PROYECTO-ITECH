@@ -30,5 +30,13 @@
         "email": "recepcionista.test@example.com",
         "password_hash": "$2y$10$BL6Tlhdbb2vMMQv.H74qDO8tvNJT0qhtpaMxKVk.ElEHVTJ2F190i",
         "role": "recepcionista"
+    },
+    {
+        "id": 5,
+        "name": "emi",
+        "username": "emi",
+        "email": "emi@gmail.com",
+        "password_hash": "$2y$10$BeFRSiDzogSbD2Ke2OBT4eHi\/.Ov0sdNSsTL8HOx16UDs4mhtzQzm",
+        "role": "paciente"
     }
 ]

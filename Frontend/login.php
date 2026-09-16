@@ -36,6 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['role'] = $user['role'];
+            if ($user['role'] === 'paciente') {
+                $_SESSION['patient_id'] = $user['id'];
+                $_SESSION['patient_name'] = $user['name'];
+            }
             unset($_SESSION['csrf_token']);
             redirect_for_role($user['role']);
         }
@@ -83,7 +87,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 <button type="submit" class="btn-primary">Ingresar</button>
             </form>
 
-            <p class="auth-footer">Usá las credenciales asignadas por la clínica.</p>
+            <p class="auth-footer">¿No tenés cuenta? <a href="register.php">Creá una ahora</a></p>
         </div>
     </main>
 </body>

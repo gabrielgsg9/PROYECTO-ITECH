@@ -2,6 +2,9 @@
 require_once __DIR__ . '/../Helpers/auth.php';
 
 require_role(['administrador', 'recepcionista'], '../login.php');
+$dashboardBasePath = '../';
+require __DIR__ . '/../Components/backoffice-dashboard.php';
+exit;
 $userName = htmlspecialchars((string) $_SESSION['user_name'], ENT_QUOTES, 'UTF-8');
 $role = htmlspecialchars((string) $_SESSION['role'], ENT_QUOTES, 'UTF-8');
 ?>

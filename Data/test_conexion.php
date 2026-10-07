@@ -10,6 +10,7 @@ class Conectar
         $contrasena = "";
 
         try {
+
             $stringConexion = "mysql:host=$servidor;dbname=$baseDatos;charset=utf8mb4";
 
             $conexion = new PDO(
@@ -31,10 +32,7 @@ class Conectar
             return $conexion;
 
         } catch (PDOException $e) {
-<<<<<<< HEAD
 
-=======
->>>>>>> aad99b2 (Corrige base de datos y conexion PHP)
             die(
                 "Error de conexión a MySQL: "
                 . $e->getMessage()

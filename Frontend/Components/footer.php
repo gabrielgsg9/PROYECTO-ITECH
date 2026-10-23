@@ -3,8 +3,8 @@
 $anio_actual = date('Y');
 
 $links_paciente = [
-    ['label' => 'Agendar Cita', 'href' => 'agenda.php'],
-    ['label' => 'Mis Citas', 'href' => 'mis-citas.php'],
+    ['label' => 'Agendar Cita', 'href' => 'appointments.php'],
+    ['label' => 'Mis Citas', 'href' => 'home.php#historial-citas'],
     ['label' => 'Historial Clínico', 'href' => 'historial.php'],
     ['label' => 'Mi Perfil', 'href' => 'perfil.php'],
 ];
@@ -30,7 +30,7 @@ $links_info = [
                     </div>
                 </a>
                 <p class="footer__tagline">
-                    Salud bucal con tecnología de vanguardia en cuatro sucursales en Montevideo.
+                    Salud bucal con tecnología de vanguardia en <?= count($sucursales ?? []) ?> sucursales en Montevideo.
                 </p>
                 <div class="footer__social">
                     <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">

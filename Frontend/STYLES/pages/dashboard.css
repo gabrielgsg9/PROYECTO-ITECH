@@ -118,6 +118,15 @@ p {
   color: var(--dash-muted);
   font-size: 0.94rem;
 }
+.dashboard-data-warning {
+  margin: 0 0 22px;
+  padding: 12px 15px;
+  border: 1px solid #e9c98a;
+  border-radius: 9px;
+  background: #fff8e8;
+  color: #72551e;
+  font-size: 0.84rem;
+}
 .user-summary {
   display: flex;
   align-items: center;
@@ -205,8 +214,11 @@ p {
 }
 .quick-actions__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+}
+.quick-actions__grid--reception {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 .quick-action {
   min-height: 103px;

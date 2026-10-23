@@ -1,0 +1,88 @@
+.technician-assignment-table {
+  min-width: 720px;
+}
+.technician-assignment-editor .section-count,
+.dashboard-section > .section-heading .section-count {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #e8f6f8;
+  color: #11798a;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.technician-assignment-email {
+  display: block;
+  margin-top: 3px;
+  color: var(--dash-muted);
+  font-size: 0.74rem;
+}
+.technician-assignment-empty {
+  color: #8a5a00;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.technician-assignment-editor {
+  scroll-margin-top: 20px;
+}
+.technician-assignment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--dash-line);
+  border-radius: 12px;
+}
+.technician-assignment-options legend {
+  padding: 0 8px;
+  color: var(--dash-muted);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+.technician-assignment-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #dce8ef;
+  border-radius: 10px;
+  background: #fbfdfe;
+  cursor: pointer;
+}
+.technician-assignment-option:has(input:checked) {
+  border-color: var(--dash-cyan);
+  background: #effafb;
+}
+.technician-assignment-option input {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin: 2px 0 0;
+  accent-color: var(--dash-cyan);
+}
+.technician-assignment-option span,
+.technician-assignment-option strong,
+.technician-assignment-option small {
+  display: block;
+  min-width: 0;
+}
+.technician-assignment-option strong {
+  color: var(--dash-text);
+  font-size: 0.86rem;
+}
+.technician-assignment-option small {
+  margin-top: 4px;
+  color: var(--dash-muted);
+  font-size: 0.74rem;
+  overflow-wrap: anywhere;
+}
+.technician-assignment-option--inactive {
+  background: #f6f7f9;
+}
+.technician-assignment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}

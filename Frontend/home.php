@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/Helpers/auth.php';
-require_once __DIR__ . '/../Data/dataClinica.php';
+require_once __DIR__ . '/../Data/clinicData.php';
 
 $patient = get_current_patient();
 
@@ -11,6 +11,15 @@ foreach ($profesionales as $p)
 
 
 $logged_in = $patient !== null;
+$patientAppointments = [];
+$patientReports = [];
+if ($logged_in) {
+    require_once __DIR__ . '/../Repository/AppointmentRepository.php';
+    require_once __DIR__ . '/../Repository/ReportRepository.php';
+    $patientAppointments = array_values(array_filter((new AppointmentRepository())->all(), static fn($a) => (int)($a['patient_id'] ?? 0) === (int)$patient['id']));
+    usort($patientAppointments, static fn($a, $b) => strcmp(($b['date'] ?? '') . ' ' . ($b['time'] ?? ''), ($a['date'] ?? '') . ' ' . ($a['time'] ?? '')));
+    $patientReports = new ReportRepository();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +43,7 @@ $logged_in = $patient !== null;
 
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-tag">4 sucursales en Montevideo</div>
+            <div class="hero-tag"><?= count($sucursales) ?> sucursales en Montevideo</div>
 
             <h1>Salud bucal en<br><em>manos expertas.</em></h1>
 
@@ -43,8 +52,8 @@ $logged_in = $patient !== null;
 
             <div class="hero-btns">
                 <?php if ($logged_in): ?>
-                    <a href="agenda.php" class="btn btn--solid">📅 Agendar cita</a>
-                    <a href="#" class="btn btn--ghost">Panel</a>
+                    <a href="appointments.php" class="btn btn--solid">📅 Agendar cita</a>
+                    <a href="#historial-citas" class="btn btn--ghost">Historial de citas</a>
                 <?php else: ?>
                     <a href="register.php" class="btn btn--solid">Crear cuenta</a>
                     <a href="login.php" class="btn btn--ghost">Ya tiene cuenta</a>
@@ -52,6 +61,19 @@ $logged_in = $patient !== null;
             </div>
         </div>
     </section>
+
+    <?php if ($logged_in): ?>
+    <section class="section" id="historial-citas">
+        <div class="sec-wrap">
+            <div class="sec-head"><div class="sec-eye">Tu actividad</div><h2 class="sec-title">Historial de citas</h2></div>
+            <?php if (!$patientAppointments): ?><p>No hay citas registradas.</p><?php else: ?>
+            <div style="overflow:auto"><table><thead><tr><th>Fecha y hora</th><th>Servicio</th><th>Profesional / centro</th><th>Estado</th><th>Informe</th></tr></thead><tbody>
+            <?php foreach ($patientAppointments as $appointment): $report = $patientReports->findByAppointment((int)$appointment['id']); ?>
+                <tr><td><?= htmlspecialchars(($appointment['date'] ?? '') . ' ' . ($appointment['time'] ?? ''), ENT_QUOTES, 'UTF-8') ?></td><td><?= htmlspecialchars($appointment['service_name'] ?? '', ENT_QUOTES, 'UTF-8') ?></td><td><?= htmlspecialchars(($appointment['professional_name'] ?? '') . ' / ' . ($appointment['branch_name'] ?? ''), ENT_QUOTES, 'UTF-8') ?></td><td><?= htmlspecialchars($appointment['status'] ?? '', ENT_QUOTES, 'UTF-8') ?></td><td><?php if ($report): ?><a href="report.php?id=<?= (int)$appointment['id'] ?>">Abrir / descargar PDF</a><?php else: ?>Informe pendiente<?php endif; ?></td></tr>
+            <?php endforeach; ?></tbody></table></div><?php endif; ?>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <div class="stats">
         <div class="stats-inner">
@@ -80,15 +102,14 @@ $logged_in = $patient !== null;
             <div class="sec-head">
                 <div class="sec-eye">Nuestras sucursales</div>
                 <h2 class="sec-title">Conocé nuestras clínicas</h2>
-                <p class="sec-sub">4 sucursales en Montevideo, pensadas para tu comodidad.</p>
+                <p class="sec-sub"><?= count($sucursales) ?> sucursales en Montevideo, pensadas para tu comodidad.</p>
             </div>
-                      <!--  <img src="/PROYECTO-ITECH-main/Frontend/slider1.jpg" alt=""> -->
             <div class="slider-wrap">
                 <div class="slider" id="slider">
                     <?php foreach ($sucursales as $suc): ?>
                         <div class="slide slide-img-item">
                             <div class="slide-img"
-                                style="background-image:url('<?= htmlspecialchars($suc['imagen'] ?? '/../assets/slider1.jpg') ?>')">
+                                style="background-image:url('<?= htmlspecialchars($suc['imagen'] ?? '/../assets/clinic-reception.jpg') ?>')">
                             </div>
                             <div class="slide-img-overlay">
                                 <div class="slide-img-name"><?= htmlspecialchars($suc['nombre']) ?></div>
@@ -113,7 +134,7 @@ $logged_in = $patient !== null;
             </div>
 
             <div style="text-align:center; margin-top:2.25rem;">
-                <a href="agenda.php" class="btn btn--dark" style="font-size:.9rem; padding:.7rem 1.75rem;">
+                <a href="appointments.php" class="btn btn--dark" style="font-size:.9rem; padding:.7rem 1.75rem;">
                     📅 Agendar una consulta
                 </a>
             </div>

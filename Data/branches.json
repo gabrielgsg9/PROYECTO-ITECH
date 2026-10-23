@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Sucursal Centro",
+        "direccion": "Av. 18 de Julio 1234, Montevideo",
+        "imagen": "../assets/clinic-reception.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Sucursal Pocitos",
+        "direccion": "Br. España 2780, Montevideo",
+        "imagen": "../assets/clinic-waiting-room.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Sucursal Carrasco",
+        "direccion": "Av. Rivera 6200, Montevideo",
+        "imagen": "../assets/clinic-reception.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Sucursal Punta Carretas",
+        "direccion": "Solano García 2785, Montevideo",
+        "imagen": "../assets/clinic-waiting-room.jpg"
+    }
+]

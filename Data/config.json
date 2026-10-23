@@ -1,0 +1,14 @@
+{
+    "storage": {
+        "equipment": "json",
+        "technician_branches": "json"
+    },
+    "technician_branch_assignments": [
+        {
+            "tecnico_id": 5,
+            "sucursal_ids": [
+                1
+            ]
+        }
+    ]
+}

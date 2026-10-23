@@ -73,6 +73,7 @@ function initDateCards() {
 function initTimeSlots() {
   document.querySelectorAll(".time-slot:not(.unavailable)").forEach((ts) => {
     ts.addEventListener("click", () => {
+      if (ts.classList.contains("unavailable")) return;
       document
         .querySelectorAll(".time-slot")
         .forEach((t) => t.classList.remove("selected"));

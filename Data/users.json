@@ -5,7 +5,7 @@
         "username": "admin",
         "email": "admin@clinicaimagen.test",
         "password_hash": "$2y$10$kZ\/zj0HPuFubAORDGQxiJOUHnDl8Oh2YV7eUBZawQtshwlW7gZZjS",
-        "role": "administrador"
+        "role": "recepcionista"
     },
     {
         "id": 2,
@@ -37,6 +37,30 @@
         "username": "emi",
         "email": "emi@gmail.com",
         "password_hash": "$2y$10$BeFRSiDzogSbD2Ke2OBT4eHi\/.Ov0sdNSsTL8HOx16UDs4mhtzQzm",
-        "role": "paciente"
+        "role": "tecnico"
+    },
+    {
+        "name": "cristian",
+        "username": "cristian",
+        "email": "cristian@gmail.com",
+        "password_hash": "$2y$10$OIgvQZZ3PsZToSikMNCwTOqTY9TLlJqf3dbjEtBreNtqayQ7x.OAi",
+        "role": "paciente",
+        "id": 6
+    },
+    {
+        "name": "asd",
+        "username": "asd",
+        "email": "asd@gmail.com",
+        "password_hash": "$2y$10$uUDZDIeuGZ4gFzzc8W6IOemvVpVW5k8u13f516m3oYbg4i1MSsxeO",
+        "role": "paciente",
+        "id": 7
+    },
+    {
+        "name": "gabi",
+        "username": "gabi",
+        "email": "gabi@gmail.com",
+        "password_hash": "$2y$10$jNx37lkmTByhifzzkpj2v.j.NqaszCOLHLVcBMX8i8JTQ08KZSF.e",
+        "role": "paciente",
+        "id": 8
     }
 ]

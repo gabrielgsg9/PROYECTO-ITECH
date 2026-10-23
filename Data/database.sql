@@ -121,10 +121,22 @@ CREATE TABLE Tecnico_Sucursal (
 CREATE TABLE Equipamiento (
     Id_Equipo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Nombre_Equipo VARCHAR(150) NOT NULL,
+    Tipo_Equipo VARCHAR(100) NOT NULL DEFAULT 'Equipo general',
+    Marca VARCHAR(100) NULL,
+    Modelo VARCHAR(100) NULL,
+    Numero_Serie VARCHAR(100) NULL,
     Id_Sucursal INT UNSIGNED NOT NULL,
+    Estado_Operativo VARCHAR(30) NOT NULL DEFAULT 'Operativo',
+    Fecha_Incorporacion DATE NULL,
+    Observaciones TEXT NULL,
+    Creado_En TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Actualizado_En TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     CONSTRAINT UQ_Equipamiento_Sucursal
         UNIQUE (Nombre_Equipo, Id_Sucursal),
+
+    CONSTRAINT CHK_Equipamiento_Estado
+        CHECK (Estado_Operativo IN ('Operativo', 'Mantenimiento', 'Fuera de servicio')),
 
     CONSTRAINT FK_Equipamiento_Sucursal
         FOREIGN KEY (Id_Sucursal)

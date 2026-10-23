@@ -11,7 +11,7 @@
         <div class="auth-card">
             <h1>Acceso denegado</h1>
             <p class="auth-subtitle">Tu rol no tiene permisos para acceder a esta página.</p>
-            <a class="btn-primary button-link" href="../login.php">Volver al inicio de sesión</a>
+            <a class="btn-primary button-link" href="../home.php">Volver al inicio</a>
         </div>
     </main>
 </body>

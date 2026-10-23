@@ -3,8 +3,15 @@ require_once __DIR__ . '/Helpers/auth.php';
 
 start_auth_session();
 
-if (!empty($_SESSION['user_id']) && !empty($_SESSION['role'])) {
-    redirect_for_role((string) $_SESSION['role']);
+if (!empty($_SESSION['user_id'])) {
+    $sessionUser = (new UserRepository())->findById((int) $_SESSION['user_id']);
+    if ($sessionUser !== null) {
+        $_SESSION['role'] = $sessionUser['role'];
+        $_SESSION['user_name'] = $sessionUser['name'];
+        redirect_for_role((string) $sessionUser['role']);
+    }
+    $_SESSION = [];
+    session_regenerate_id(true);
 }
 
 $errors = [];
@@ -32,15 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if ($user !== null) {
-            session_regenerate_id(true);
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
-            $_SESSION['role'] = $user['role'];
-            if ($user['role'] === 'paciente') {
-                $_SESSION['patient_id'] = $user['id'];
-                $_SESSION['patient_name'] = $user['name'];
-            }
-            unset($_SESSION['csrf_token']);
+            login_auth_user($user);
             redirect_for_role($user['role']);
         }
     }

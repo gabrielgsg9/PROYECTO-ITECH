@@ -1,0 +1,21 @@
+# Archivos temporales y bloqueos
+
+*.lock
+
+# Configuración local y credenciales
+
+.env
+.env.*
+!.env.example
+
+# Archivos temporales del sistema
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencias y herramientas
+
+node_modules/
+.vscode/
+.idea/

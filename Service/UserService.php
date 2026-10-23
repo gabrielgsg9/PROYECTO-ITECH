@@ -1,88 +1,24 @@
 <?php
-require_once '../Repository/UserRepository.php';
-require_once '../Domain/User.php';
+require_once __DIR__.'/../Repository/UserRepository.php';
+/** Reglas de registro e inicio de sesión independientes del adaptador JSON/SQL. */
 class UserService
 {
-    private $repository;
-    public function __construct()
+    private UserRepository $repository;
+    public function __construct(?UserRepository $repository=null){$this->repository=$repository??new UserRepository();}
+    /** Crea una cuenta de paciente desde recepción usando el mismo esquema que el registro existente. */
+    public function createPatient(string $name,string $email,string $password,string $confirmation):array
     {
-        $this->repository = new UserRepository();
+        $name=trim(preg_replace('/\s+/u',' ',$name)??$name);$email=strtolower(trim($email));$errors=[];
+        if($name===''||strlen($name)>120)$errors[]='Ingresá un nombre de hasta 120 caracteres.';
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL)||strlen($email)>254)$errors[]='Ingresá un email válido.';
+        if(strlen($password)<4)$errors[]='La contraseña debe tener al menos 4 caracteres.';
+        if($password!==$confirmation)$errors[]='Las contraseñas ingresadas no coinciden.';
+        if($errors)return ['user'=>null,'errors'=>$errors];
+        $username=(string)strstr($email,'@',true);
+        try{$user=$this->repository->create(['name'=>$name,'username'=>$username,'email'=>$email,'password_hash'=>password_hash($password,PASSWORD_DEFAULT),'role'=>'paciente']);}
+        catch(DomainException $e){return ['user'=>null,'errors'=>['Ya existe una cuenta con ese email o nombre de usuario.']];}
+        return ['user'=>$user,'errors'=>[]];
     }
-    public function registerUser($nombre, $pass1, $pass2, $rol = 'paciente')
-    {
-        $errores = [];
-        if (empty($nombre) || empty($pass1)) {
-            $errores[] = "Todos los campos son requeridos.";
-            return $this->generarHtmlErrores($errores);
-        }
-        if ($pass1 !== $pass2) {
-            $errores[] = "Las contraseñas ingresadas no coinciden.";
-        }
-        if (strlen($pass1) < 4) {
-            $errores[] = "La contraseña debe tener una longitud mínima de 4 caracteres.";
-        }
-        if ($this->repository->findByName($nombre) !== null) {
-            $errores[] = "El nombre de usuario o credencial '$nombre' ya existe en el
-sistema.";
-        }
-        if (count($errores) > 0) {
-            return $this->generarHtmlErrores($errores);
-        }
-        $nuevoUsuario = new User($nombre, $pass1, $rol);
-        try {
-            $this->repository->save($nuevoUsuario);
-
-            return "<div style='background:#d4edda; color:#155724; padding:15px; margin-
-bottom:15px; border-radius:5px;'>
-
-¡Usuario registrado correctamente en la base de datos de
-Clínica Imagen!
-</div>";
-        } catch (Exception $e) {
-            return $this->generarHtmlErrores(["Error interno: No se pudo persistir el
-registro."
-            ]);
-        }
-    }
-    public function loginUser($nombre, $password)
-    {
-        if (empty($nombre) || empty($password)) {
-            return $this->generarHtmlErrores(["Debe completar todos los campos del
-formulario."
-            ]);
-        }
-        // Recuperamos el objeto de dominio desde el repositorio de MySQL
-        $usuario = $this->repository->findByName($nombre);
-        // Verificación lógica de existencia y coincidencia de password
-        if ($usuario === null || $usuario->password !== $password) {
-            return $this->generarHtmlErrores(["Las credenciales ingresadas son
-incorrectas."
-            ]);
-        }
-        // Activación del subsistema de sesiones
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        // Seteo de variables de sesión globales e inviolables
-        $_SESSION['usuario_nombre'] = $usuario->nombre;
-        $_SESSION['usuario_rol'] = $usuario->rol;
-        // Redirección inmediata por cabecera HTTP al dashboard protegido
-        header("Location: dashboard.php");
-        exit();
-    }
-    private function generarHtmlErrores($errores)
-    {
-
-        $html = "<div style='background:#f8d7da; color:#721c24; padding:15px; margin-
-bottom:15px; border-radius:5px;'>";
-
-        $html .= "<b>Se han encontrado errores de validación:</b><ul style='margin-top:
-5px; padding-left:20px;'>";
-        foreach ($errores as $error) {
-            $html .= "<li>" . htmlspecialchars($error) . "</li>";
-        }
-        $html .= "</ul></div>";
-        return $html;
-    }
+    public function registerUser(string $email,string $password,string $confirmation):array{$email=strtolower(trim($email));$errors=[];if(!filter_var($email,FILTER_VALIDATE_EMAIL))$errors[]='Ingresá un email válido.';if(strlen($password)<4)$errors[]='La contraseña debe tener al menos 4 caracteres.';if($password!==$confirmation)$errors[]='Las contraseñas ingresadas no coinciden.';if($errors)return ['user'=>null,'errors'=>$errors];$username=(string)strstr($email,'@',true);try{$u=$this->repository->create(['name'=>$username,'username'=>$username,'email'=>$email,'password_hash'=>password_hash($password,PASSWORD_DEFAULT),'role'=>'paciente']);}catch(DomainException $e){return ['user'=>null,'errors'=>['Ya existe una cuenta con ese email o nombre de usuario.']];}return ['user'=>$u,'errors'=>[]];}
+    public function loginUser(string $identifier,string $password):?array{$u=$this->repository->findByName($identifier);return $u&&isset($u['password_hash'])&&password_verify($password,$u['password_hash'])?$u:null;}
 }
-?>

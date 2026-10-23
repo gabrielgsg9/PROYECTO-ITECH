@@ -16,19 +16,20 @@
     <div class="navbar__menu" id="navbarMenu">
         <ul class="navbar__links">
             <li><a href="home.php">Inicio</a></li>
-            <li><a href="agenda.php" class="active">Mis Citas</a></li>
+            <?php if (($patient ?? null) !== null): ?><li><a href="appointments.php" class="active">Mis Citas</a></li><?php endif; ?>
+            <?php if (($_SESSION['role'] ?? '') === 'administrador'): ?><li><a href="admin/users.php">Usuarios</a></li><?php elseif (($_SESSION['role'] ?? '') === 'recepcionista'): ?><li><a href="recepcion/appointments.php">Gestión de citas</a></li><?php endif; ?>
             <li><a href="#">Historial</a></li>
             <li><a href="#">Estudios</a></li>
             <li><a href="#">Mi Perfil</a></li>
             <li><a href="logout.php">Salir</a></li>
         </ul>
 
-        <?php if (isset($patient) && $patient !== null): ?>
+        <?php if (!empty($_SESSION['user_name'])): ?>
             <div class="navbar__user">
                 <div class="navbar__avatar">
-                    <?= htmlspecialchars(strtoupper(substr($patient['nombre'], 0, 1)), ENT_QUOTES, 'UTF-8') ?>
+                    <?= htmlspecialchars(strtoupper(substr((string)$_SESSION['user_name'], 0, 1)), ENT_QUOTES, 'UTF-8') ?>
                 </div>
-                <span class="navbar__user-name"><?= htmlspecialchars($patient['nombre'], ENT_QUOTES, 'UTF-8') ?></span>
+                <span class="navbar__user-name"><?= htmlspecialchars((string)$_SESSION['user_name'], ENT_QUOTES, 'UTF-8') ?></span>
             </div>
         <?php endif; ?>
     </div>

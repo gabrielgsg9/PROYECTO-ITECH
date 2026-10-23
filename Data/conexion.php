@@ -31,14 +31,7 @@ class Conectar
             return $conexion;
 
         } catch (PDOException $e) {
-<<<<<<< HEAD
-
-=======
->>>>>>> aad99b2 (Corrige base de datos y conexion PHP)
-            die(
-                "Error de conexión a MySQL: "
-                . $e->getMessage()
-            );
+            throw new RuntimeException('No fue posible conectar a MySQL.', 0, $e);
         }
     }
 }

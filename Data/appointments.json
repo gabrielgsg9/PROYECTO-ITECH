@@ -1,0 +1,47 @@
+[
+    {
+        "patient_id": 7,
+        "patient_name": "asd",
+        "branch_id": 2,
+        "branch_name": "Sucursal Pocitos",
+        "service_id": 1,
+        "service_name": "Radiografía Periapical",
+        "professional_id": 2,
+        "professional_name": "Dra. Ana López",
+        "date": "2026-10-20",
+        "time": "10:30",
+        "notes": "",
+        "status": "Cancelada",
+        "id": 1
+    },
+    {
+        "patient_id": 8,
+        "patient_name": "gabi",
+        "branch_id": 2,
+        "branch_name": "Sucursal Pocitos",
+        "service_id": 1,
+        "service_name": "Radiografía Periapical",
+        "professional_id": 2,
+        "professional_name": "Dra. Ana López",
+        "date": "2026-10-23",
+        "time": "14:30",
+        "notes": "la leche",
+        "status": "Cancelada",
+        "id": 2
+    },
+    {
+        "patient_id": 7,
+        "patient_name": "asd",
+        "branch_id": 4,
+        "branch_name": "Sucursal Punta Carretas",
+        "service_id": 2,
+        "service_name": "Radiografía Bite-Wing",
+        "professional_id": 2,
+        "professional_name": "Dra. Ana López",
+        "date": "2026-10-26",
+        "time": "09:00",
+        "notes": "",
+        "status": "Pendiente",
+        "id": 3
+    }
+]

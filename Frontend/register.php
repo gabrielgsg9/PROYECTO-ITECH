@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             );
             $errors = $result['errors'];
             $registered = $result['user'] !== null;
+            if ($registered) {
+                login_auth_user($result['user']);
+                redirect_for_role('paciente');
+            }
         } catch (Throwable $exception) {
             $errors[] = 'No fue posible crear la cuenta. Intentá más tarde.';
         }
@@ -42,12 +46,6 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         <div class="auth-card">
             <h1>Creá tu cuenta</h1>
             <p class="auth-subtitle">Registrate como paciente</p>
-
-            <?php if ($registered): ?>
-                <div class="alert alert-ok" role="status">
-                    Cuenta creada correctamente. Ya podés <a href="login.php">iniciar sesión</a>.
-                </div>
-            <?php endif; ?>
 
             <?php if ($errors): ?>
                 <div class="alert alert-error" role="alert">

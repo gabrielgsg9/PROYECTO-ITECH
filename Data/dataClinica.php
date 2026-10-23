@@ -1,12 +1,10 @@
 <?php
-// Datos clínicos simulados.
-
-$sucursales = [
-    ['id' => 1, 'nombre' => 'Sucursal Centro', 'direccion' => 'Av. 18 de Julio 1234, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider1.jpg'],
-    ['id' => 2, 'nombre' => 'Sucursal Pocitos', 'direccion' => 'Br. España 2780, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider2.jpg'],
-    ['id' => 3, 'nombre' => 'Sucursal Carrasco', 'direccion' => 'Av. Rivera 6200, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider1.jpg'],
-    ['id' => 4, 'nombre' => 'Sucursal Punta Carretas', 'direccion' => 'Solano García 2785, Montevideo', 'imagen' => '/PROYECTO-ITECH-main/assets/slider2.jpg'],
-];
+// Las sucursales se administran en JSON; los demás catálogos siguen precargados.
+require_once __DIR__ . '/../Repository/BranchRepository.php';
+$sucursales = array_values(array_filter(
+    (new BranchRepository())->all(),
+    static fn(array $branch): bool => !array_key_exists('activo', $branch) || (bool) $branch['activo']
+));
 
 $servicios = [
     ['id' => 1, 'nombre' => 'Radiografía Periapical', 'duracion' => 15, 'icono' => '🦷'],
